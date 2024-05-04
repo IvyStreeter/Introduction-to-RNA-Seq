@@ -40,4 +40,4 @@ This course is by Daniel Beiting from UPenn. All [lecture material](https://diyt
 
 ## Reading Material
 ### [NGS technology and file formats](https://learn.gencore.bio.nyu.edu/ngs-file-formats/)
-[File format flow chart](./Relative%20links/FileFormatFlowChart.png)
+![File format flow chart](./Relative%20links/FileFormatFlowChart.png)
