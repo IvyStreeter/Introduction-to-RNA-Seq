@@ -2,8 +2,8 @@
 ## Objective
 This is the basics to RNA-Seq. I am utilizing multiple resources to go through the basics and hope to analyze data from papers and datasets in the future.
 
-# DIY transcriptomics 
-This course is by Daniel Beiting from UPenn and all [lecture material](https://diytranscriptomics.com/) and resources linked on his website.
+# DIY transcriptomics Overview
+This course is by Daniel Beiting from UPenn. All [lecture material](https://diytranscriptomics.com/) and resources linked on his website. Some notes provided may stem from personal professional experience.
 
 ## Course objective
 - To analyze your own bulk RNA-Seq or scRNA-Seq data
@@ -31,3 +31,13 @@ This course is by Daniel Beiting from UPenn and all [lecture material](https://d
 7. Funcitonal enrichment analysis
 8. Dynamic Reports
 
+# Lecture 1. Introduction to RNA-Seq technology and data
+## Learning objectives
+- Get familiar with terminology of RNASeq/HTS (paired-end, single-end, cluster density, FastQ, index, etc).
+- Understand Illumina's "Sequencing by synthesis" (SBS) technology.
+- Set priorities when planning a sequencing experiment.
+- Understand the basics of library prep for HTS.
+
+## Reading Material
+### [NGS technology and file formats](https://learn.gencore.bio.nyu.edu/ngs-file-formats/)
+[File format flow chart](./Relative%20links/FileFormatFlowChart.png)
