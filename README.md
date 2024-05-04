@@ -114,11 +114,11 @@ Each image is 2.5-3.0 Mb, and ~115,000 images are produced per 36 cycles
 - Sanger Sequencers
 - Most sequence databases store in FastA and is made availalble for downnload in this format
 - Can be generated from FastQ files
-[This is what FastA looks like](./Relative%20links/fastaPic.png)
+![This is what FastA looks like](./Relative%20links/fastaPic.png)
 
 <br>  
 ##### **FastQ**  <br>  
 The most widely used sequence format in sequence analysis and is generally delivered by sequencers in this format. Many analysis tools require this format because it contains more information than FastA.
 
 
-(This is an image of what FastQ looks like)(./Relative%20links/fastqPic.png)
+![This is an image of what FastQ looks like](./Relative%20links/fastqPic.png)
