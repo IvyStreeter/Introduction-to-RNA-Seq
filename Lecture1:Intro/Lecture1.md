@@ -45,7 +45,7 @@ The sample can be amplified in either single-end or paired-end sequencing.
 Sequencing kits are getting cheaper by the decade, the general consensus seems to always go with paired-end sequencing with genomic assays if in the budget due to higher quality data. <br>  
   
 ##### **3. Sequencing**
-[Illumina Sequencing by Synthesis (SBS) Workflow](https://www.youtube.com/watch?v=fCd6B5HRaZ8)
+[Illumina Sequencing by Synthesis (SBS) Workflow](https://youtu.be/fCd6B5HRaZ8?si=KBfoI6uNyxmuxgiR)
   
 Sometimes you will hear people state that a sample occupies 2 lanes, this means that for an 8 lane flowcell, the remaining 6 will be utilized by other samples submitted by otheres. This is a way to drive down sequencing costs. This may be older terminology as I no longer hear lanes being referred. This may be due to sequencing studies needing need high read counts and the [capacity of each sequencing lane](https://online.stat.psu.edu/stat555/node/13/#:~:text=The%20basic%20sequencing%20unit%20is,the%20amount%20of%20sequencing%20done.)
   
@@ -55,7 +55,7 @@ Sometimes you will hear people state that a sample occupies 2 lanes, this means 
 >Our units of analysis are features and RNA samples.  In many studies, sequencing lanes and samples are not the same.  Mapping identifies the features.  We also need to summarize by sample. In some studies, the RNA samples are split across several lanes.  It turns out that the error structure is preserved if we simply sum up the reads from each sample to obtain the total reads for each feature in the sample. In some studies, the RNA samples are barcoded and multiplexed so that several samples are sequenced together.  As the reads are mapped to the reference, the bar codes need to be read so that they can also be assigned to samples.
 
 
-[Here is a forum link discussingg lanes](https://www.biostars.org/p/48906/)
+[Here is a forum link discussing lanes](https://www.biostars.org/p/48906/)
 [Here is a seconday link discussing lanes](https://bioinformatics.stackexchange.com/questions/4564/relationship-between-sequencing-lane-and-ngs-dataset)
   <br>
 Other context regarding lane
@@ -69,8 +69,10 @@ Each image is 2.5-3.0 Mb, and ~115,000 images are produced per 36 cycles
 ##### **FastA**
 - This is the most basic format for reporting a sequence and is accepted by all sequence analysis programs.
 - Contains 2 lines:
-1. Sequence header which always starts with a '>'. This is followed by a sequence identifier, whitespace, then a sequence description
-2. The sequence <br>  
+1. The first is the sequence header, which always starts with a ‘>’
+- Everything from the beginning ‘>’ to the first whitespace is considered the sequence identifier. Everything after that is considered the sequence description (this can be metadata, machine serial number, read orientation, etc.)
+2. The sequence itself 
+- Note that the sequence can span multiple lines, depending on the length of the sequence.
   
 **Softwares that use FastA** <br>  
 - Reference genome
@@ -82,10 +84,48 @@ Each image is 2.5-3.0 Mb, and ~115,000 images are produced per 36 cycles
 - Most sequence databases store in FastA and is made availalble for downnload in this format
 - Can be generated from FastQ files
 ![This is what FastA looks like](./Relative%20links/fastaPic.png)
-
-
+  
+You can grab and expore a FastA file:  
+Generally you will download a reference genome. You can find it here: ftp://ftp.wormbase.org/pub/wormbase/species/c_elegans/sequence/genomic/c_elegans.WS236.genomic.fa.gz
+  
+Download it onto the cluster in a new folder in your scratch called file_formats. Unzip this and look at the size. What command would you use to open it?
+  
 ##### **FastQ**  <br>  
 The most widely used sequence format in sequence analysis and is generally delivered by sequencers in this format. Many analysis tools require this format because it contains more information than FastA.
-
+  
+FastQ contains 4 lines of syntax:  
+1. The first line is the sequence header which starts with an ‘@’ (not a ‘>’!).
+- Everything from the leading ‘@’ to the first whitespace character is considered the sequence identifier. Everything after the first space is considered the sequence description
+2. The second line is the sequence.
+3. The third line starts with ‘+’ and can have the same sequence identifier appended (but usually doesn’t anymore).
+4. The fourth line are the quality scores
 
 ![This is an image of what FastQ looks like](./Relative%20links/fastqPic.png)
+
+![Here is another example of a FastQ](./Relative%20links/fastqPic2.png)
+
+<br>  
+**What software use FastQ?**
+<br>  
+Nearly everything works with this format. Some common examples are:
+- Aligners: Bowtie, Tophat2
+- Assemblers: Velvet, Spades
+- QC tools: Trimmomatic, FastQC
+<br>  
+I think it’s a shorter list to tell you what does not work with FastQ files. Please note that there are tools available to convert FastQ to FastA in the event that FastQ is incompatible with the tool you’re using:
+<br>  
+- Blast
+- Multiple Sequence Aligners
+- Any reference sequence
+<br>  
+**How are these files generated?**
+<br>  
+Sequencers generate this format by default.
+This can also be generated from a few different file formats (BAM, SFF, HDF5), though they all were some form of FastQ at some point.
+<br>  
+**Let’s grab one!**
+Type this into your terminal
+`cp /scratch/courses/HITS-2018/file_formats/208_1_merged.fastq $SCRATCH/file_formats/`
+
+Check the size of this. What program would you use to view it?
+
