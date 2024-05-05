@@ -486,9 +486,22 @@ Take a look at it and see what it looks like!
 ### **RNA-Seq Workflow**
 [Reference](https://rnaseq.uoregon.edu/)
 
-Please view link for detailed overview
+Please view link for detailed overview. 
 
 ## Lecture Notes
+RNAseq FAQS
+How many replicates?
+How deep should I sequence?
+How much will it cost?
+
+**Sequencing Depth vs Replicates**
+By including more replicates, you identify more differentially expressed genes compared to trying to increase sequencing depth.
+
+Slightly different for lowly expressed genes, however, it is uncertain how important lowly expressed genes are in your model of study.
+
+**How many replicates are enough?**  
+>= 12 seems to be robust and can detect smaller fold changes, but 3 is appropriate if you care about large changes, ie. 2.0x fold changes.
+
 
 
 [Previous Topic](../README.md)
