@@ -83,7 +83,7 @@ Each image is 2.5-3.0 Mb, and ~115,000 images are produced per 36 cycles
 - Sanger Sequencers
 - Most sequence databases store in FastA and is made availalble for downnload in this format
 - Can be generated from FastQ files
-![This is what FastA looks like](./Relative%20links/fastaPic.png)
+![This is what FastA looks like](Relativelinks/fastaPic.png)
   
 You can grab and expore a FastA file:  
 Generally you will download a reference genome. You can find it here: ftp://ftp.wormbase.org/pub/wormbase/species/c_elegans/sequence/genomic/c_elegans.WS236.genomic.fa.gz
@@ -100,11 +100,12 @@ FastQ contains 4 lines of syntax:
 3. The third line starts with ‘+’ and can have the same sequence identifier appended (but usually doesn’t anymore).
 4. The fourth line are the quality scores
 
-![This is an image of what FastQ looks like](./Relative%20links/fastqPic.png)
+![This is an image of what FastQ looks like](Relativelinks/fastqPic.png)
 
-![Here is another example of a FastQ](./Relative%20links/fastqPic2.png)
+![Here is another example of a FastQ](Relativelinks/fastqPic2.png)
 
 <br>  
+
 **What software use FastQ?**
 <br>  
 Nearly everything works with this format. Some common examples are:
@@ -118,11 +119,14 @@ I think it’s a shorter list to tell you what does not work with FastQ files. P
 - Multiple Sequence Aligners
 - Any reference sequence
 <br>  
+
 **How are these files generated?**
 <br>  
+
 Sequencers generate this format by default.
 This can also be generated from a few different file formats (BAM, SFF, HDF5), though they all were some form of FastQ at some point.
 <br>  
+
 **Let’s grab one!**
 Type this into your terminal
 `cp /scratch/courses/HITS-2018/file_formats/208_1_merged.fastq $SCRATCH/file_formats/`
