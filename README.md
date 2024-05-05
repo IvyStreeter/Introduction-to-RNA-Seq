@@ -7,11 +7,11 @@ This course is by Daniel Beiting from UPenn. All [lecture material](https://diyt
 
 ## Course objective
 - To analyze your own bulk RNA-Seq or scRNA-Seq data
-- To make a lightweight and reusable pipeline for different datas and potentially other types of assays such as ATAC-Seq
+- To make a lightweight and reusable pipeline for different datasets and potentially other types of assays such as ATAC-Seq
 - To learn best practices for working in R/bioconductor
 - To become a better data scientist
 - To learn basic building blocks to create publication quality graphics
-- To learn to report the owrk in a transparent and reproducible fashion
+- To learn to report the work in a transparent and reproducible fashion
 
 ## The approach
 - Open-source material (free!)
@@ -28,7 +28,7 @@ This course is by Daniel Beiting from UPenn. All [lecture material](https://diyt
 4. Accessing public data
 5. Feature Selection
 6. Finding modules
-7. Funcitonal enrichment analysis
+7. Functional enrichment analysis
 8. Dynamic Reports
 
 - [Lecture 1: Intro to RNAseq technology and data](./Lecture1:Intro/Lecture1.md)
