@@ -177,7 +177,7 @@ The main purpose for these scores is to further provide evidence that the sequen
 
 #### **SAM/BAM/CRAM Format**
 <br>  
-Official documentation here [SAM](Relativelinks/SAMv1.pdf)
+Official documentation here [SAM](./Relativelinks/SAMv1.pdf)
 
 These formats were introduced to standardize how alignments are reported. Initially there were many different formats, most of them proprietary, which were space inefficient and either held too much or too little information. The first of these to be introduced was Sequence Alignment Map (SAM). With this format not only is the alignment retained but the associated quality scores (both mapping and base quality), the original read itself, paired-end information, sample information, and many more features.
 <br> 
@@ -212,7 +212,7 @@ The bitwise flag is a lookup code to explain certain features about the particul
 
 ![bitwise flag](Relativelinks/bitwiseflag.png)
 <br>  
-One important thing to note is that any combination of these flags results in one integer, which makes interpreting it a bit difficult. To make it easy you can check here to either encode or decode a bitwise flag. [decode flag](https://broadinstitute.github.io/picard/explain-flags.html)
+One important thing to note is that any combination of these flags results in one integer, which makes interpreting it a bit difficult. To make it easy you can check [here](https://broadinstitute.github.io/picard/explain-flags.html) to either encode or decode a bitwise flag.
 
 <br>  
 
