@@ -478,7 +478,8 @@ The same information can be represented in GFF3 format:
 
 Download it into your directory: 
 
-```ftp://ftp.wormbase.org/pub/wormbase/species/c_elegans/gff/c_elegans.WS236.annotations.gff3.gz
+```
+ftp://ftp.wormbase.org/pub/wormbase/species/c_elegans/gff/c_elegans.WS236.annotations.gff3.gz
 ```
 
 Take a look at it and see what it looks like!
@@ -500,7 +501,7 @@ By including more replicates, you identify more differentially expressed genes c
 Slightly different for lowly expressed genes, however, it is uncertain how important lowly expressed genes are in your model of study.
 
 **How many replicates are enough?**  
->= 12 seems to be robust and can detect smaller fold changes, but 3 is appropriate if you care about large changes, ie. 2.0x fold changes.
+Greater than or = 12 seems to be robust and can detect smaller fold changes, but 3 is appropriate if you care about large changes, ie. 2.0x fold changes.
 
 
 
