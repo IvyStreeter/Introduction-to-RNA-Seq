@@ -134,15 +134,15 @@ Type this into your terminal
 Check the size of this. What program would you use to view it?
 
 ##### **Quality Scores**
-[More regarding Quality Scores from Illumina](technote_Q-Scores.pdf)
+[More regarding Quality Scores from Illumina](Relativelinks/technote_Q-Scores.pdf)
 Quality scores are a way to assign confidence to a particular base within a read. Some sequencers have their own proprietary quality encoding but most have adopted Phred-33 encoding. Each quality score represents the probability of an incorrect basecall at that position.
 
 These scores provide also insight into the library prepaartion, read alignment, and variant calling along with confidence in basecalling.
 
 Historically, Phred originated as an algorithm to takes Sanger Sequencing metrics and links them to known accuracy through a large multivariate lookup table. This method has been highly accurate across a range of sequencing chemistries and insruments, thus making it a standard in assessing sequencing quality today.
 
-![Phred Quality scores are encorded in ASCII.](ASCIIPhred.png)
+![Phred Quality scores are encorded in ASCII.](Relativelinks/ASCIIPhred.png)
 
- ![These scores can be interpreted as:](QualityScoreInterpretation.png)
+ ![These scores can be interpreted as:](Relativelinks/QualityScoreInterpretation.png)
 
- 
+
