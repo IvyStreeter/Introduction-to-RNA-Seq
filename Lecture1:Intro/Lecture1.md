@@ -56,6 +56,9 @@ Sometimes you will hear people state that a sample occupies 2 lanes, this means 
 
 
 [Here is a forum link discussing lanes](https://www.biostars.org/p/48906/)
+<br>  
+
+
 [Here is a seconday link discussing lanes](https://bioinformatics.stackexchange.com/questions/4564/relationship-between-sequencing-lane-and-ngs-dataset)
   <br>
 Other context regarding lane
@@ -67,7 +70,7 @@ Each image is 2.5-3.0 Mb, and ~115,000 images are produced per 36 cycles
 
 #### File formats
 ##### **FastA**
-Official FastA documentation [FastA](https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=BlastDocs&DOC_TYPE=BlastHelp)
+Official FastA [documentation](https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=BlastDocs&DOC_TYPE=BlastHelp)
 - This is the most basic format for reporting a sequence and is accepted by all sequence analysis programs.
 - Contains 2 lines:
 1. The first is the sequence header, which always starts with a ‘>’
@@ -95,7 +98,8 @@ Generally you will download a reference genome. You can find it here: ftp://ftp.
 Download it onto the cluster in a new folder in your scratch called file_formats. Unzip this and look at the size. What command would you use to open it?
   
 ##### **FastQ**  <br>  
-Official FastQ format [FastQ](http://maq.sourceforge.net/fastq.shtml)
+
+Official FastQ [documentation](http://maq.sourceforge.net/fastq.shtml)
 <br>  
 
 The most widely used sequence format in sequence analysis and is generally delivered by sequencers in this format. Many analysis tools require this format because it contains more information than FastA.
@@ -178,8 +182,7 @@ The main purpose for these scores is to further provide evidence that the sequen
 #### **SAM/BAM/CRAM Format**
 <br>  
 
-Official documentation here 
-[SAM](./Relativelinks/SAMv1.pdf)
+Official documentation [here](./Relativelinks/SAMv1.pdf)
 
 These formats were introduced to standardize how alignments are reported. Initially there were many different formats, most of them proprietary, which were space inefficient and either held too much or too little information. The first of these to be introduced was Sequence Alignment Map (SAM). With this format not only is the alignment retained but the associated quality scores (both mapping and base quality), the original read itself, paired-end information, sample information, and many more features.
 <br> 
@@ -230,3 +233,16 @@ This value reports how well the read aligned to the reference. Different algorit
 This is a shorthand way to encode an entire alignment. Instead of writing the whole alignment out, operators have been defined and are used in combination with numbers to explain which part of the sequence aligns, which doesn’t, and everything in between. The definition for the operators can be found here:
 
 ![CIGAR String](Relativelinks/bitwiseflag.png)
+
+![CIGAR example](./Relativelinks/CIGARexample.png)
+
+Example SAM file
+
+```
+HWI-ST865:416:C6CG0ACXX:1:1313:9073:43827 0 I 2 1 99M * 0 0 CCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCT @C@DFDEFFHDFFIIJIGIIGIGGIIIIJGHGIJJEEIAHHGGIGFH@HGCFGGGJJIIGDAFG@DGIHHHHHFFBB@CACEC6;?CDD?CDCAD>>AA AS:i:0 XS:i:0 XN:i:0 XM:i:0 XO:i:0 XG:i:0 NM:i:0 MD:Z:99 YT:Z:UU
+HWI-ST865:416:C6CG0ACXX:1:1215:16359:6484 16 I 9 1 85M * 0 0 CTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCC EEEEFFFFDAGHHHIJJIIJJJJJIJJJJIJIJJIGIIJJJJJJJIJJJJJJJIIJJJIIJGJJIJJJJJJJHFHHHFFFFFCCB AS:i:0 XS:i:0 XN:i:0 XM:i:0 XO:i:0 XG:i:0 NM:i:0 MD:Z:85 YT:Z:UU
+HWI-ST865:416:C6CG0ACXX:1:1113:14118:89232 16 I 15 1 100M * 0 0 CTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAA CAC@A>C@AADCAC@ACEEC@@BD?E;@CEHGCEIGIHAFHGGF;FCHBHFBHIGIIIJJJJJJJJJJJJJJJJJJJJJIJJJJJJJHHHHHFFFFFCCC AS:i:0 XS:i:0 XN:i:0 XM:i:0 XO:i:0 XG:i:0 NM:i:0 MD:Z:100 YT:Z:UU
+HWI-ST865:412:C6CLLACXX:1:2315:12173:84819 16 I 49 1 70M * 0 0 GCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCT @7)3CC=)CA;EBC>DAEDBDCDDDCDD@B?<DEDE399CBC<+>EAE<BDCEAE3DADDD<ABDD;1?? AS:i:0 XS:i:0 XN:i:0 XM:i:0 XO:i:0 XG:i:0 NM:i:0 MD:Z:70 YT:Z:UU HWI-ST865:412:C6CLLACXX:1:1201:19323:33842 16 I 71 0 100M * 0 0 AAGCCTAAGCCTAAGCCTAAGCCTAAGCCAAATCCCAAGCCTAAGCCTAAGCCTAAGCCTAAGCCAGAGCCTAAGCCTAAGCCTTAGCCTAAGCCTGATC DDDCCDCCACCCDCCCC>CAA@D@;BDHA3A7(@5/IIHFIIGEIIIIHEIIIIIGGIGIIIIIFDCIIIIIIIIGGIIGIHFFEIHDDBHFFDDDB@@@ AS:i:-33 XS:i:-33 XN:i:0 XM:i:8 XO:i:0 XG:i:0 NM:i:8 MD:Z:29T2G2T29T0A17A11A1G1 YT:Z:UU
+HWI-ST865:412:C6CLLACXX:1:1215:19021:78287 16 I 93 1 66M * 0 0 CTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTAAGC @=87=3GF=.:CFE;D@B3?3?BD9BC<>CJJJJJJJJJJJJJJJJIJJJJJIHHHHHFFEDAC@B AS:i:0 XS:i:0 XN:i:0 XM:i:0 XO:i:0 XG:i:0 NM:i:0 MD:Z:66 YT:Z:UU
+```
+
