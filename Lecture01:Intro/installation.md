@@ -1,4 +1,4 @@
-install 
+install:
 
 - R
 - RStudio
@@ -7,12 +7,14 @@ install
 - Conda
 
 
-In RStudio, install bioconductor and update to all
+In RStudio, install bioconductor and update all
 ```
 if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
 BiocManager::install(version = "3.16")
 ```
+
+[Conda installation instructions](https://protocols.hostmicrobe.org/conda)
 install:
 - kallisto
 - kb-python
@@ -21,5 +23,3 @@ install:
 - sourmash
 - centrifuge
 
-
-[Conda installation instructions](https://protocols.hostmicrobe.org/conda)
