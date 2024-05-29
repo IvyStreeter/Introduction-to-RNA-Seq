@@ -491,13 +491,16 @@ Please view link for detailed overview.
 
 ## Lecture Notes
 David Klenerman and Shankar Balasubramanian 
+
 [Link to University of Cambridge article](https://www.cam.ac.uk/stories/journeysofdiscovery-rapidgenomesequencing) 
+
 [Short Youtube video from David Klenerman and Shankar Balasubramanian](https://youtu.be/m7uN-N0dDcQ?si=QWLLKhp0hThx7I1_) 
 
 The discussion for sequencing started in a Pub where they theorized how they could massively capture the sequence DNA. They took their idea to venture capital and eventually founded a company Solexa. Illumina bought Solexa and improved the technology until it became the company it is today.
 
 Solid Phase DNA Amplification 
-[DOI] (10.1016/S0006-3495(03)74636-0)
+
+[DOI](10.1016/S0006-3495(03)74636-0)
 
 RNAseq FAQS
 How many replicates?
