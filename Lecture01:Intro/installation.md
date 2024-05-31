@@ -15,6 +15,8 @@ BiocManager::install(version = "3.16")
 ```
 
 [Conda installation instructions](https://protocols.hostmicrobe.org/conda)
+<br>  
+
 install:
 - kallisto
 - kb-python
@@ -23,3 +25,5 @@ install:
 - sourmash
 - centrifuge
 
+[Previous Topic](Lecture01.md.md)
+[Next Lecture Topic](../Lecture02:SettingUp/Lecture02.md)
