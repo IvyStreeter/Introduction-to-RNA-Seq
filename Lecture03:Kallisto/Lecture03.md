@@ -10,7 +10,7 @@ fastqc html files are attached
 Human reference genome release information
 Index of /pub/release-112/fasta/homo_sapiens/cdna
 
-kalliso mapping:
+kallisto mapping:
 
 ```
 kallisto quant \
@@ -37,7 +37,7 @@ sh readmapping.sh
 ```
 
 ran into error with multiqc. 
-#Troublshooting multiqc
+# Troublshooting multiqc
 
 ```
 $ multiqc -d .
@@ -71,11 +71,11 @@ Issue not resolved, downloaded multiqc via [condaforge](https://stackoverflow.co
 conda install -c bioconda -c conda-forge multiqc
 ```
 
-Appears to be a python version issue. Running 3.6.13 and need to update >3.7. If enviornment has conflicts, can always create a new one.
+Appears to be a python version issue as it could not import a [function](https://stackoverflow.com/questions/52889746/cant-import-annotations-from-future) . Running 3.6.13 and need to update >3.7. If enviornment has conflicts, can always create a new one.
 ```
 conda update python
 ```
-
+After python was upgraded to the latest version 3.11.9, multiqc was able to work
 
 
 [Previous Topic](../Lecture02:SettingUp/Lecture2.md)
