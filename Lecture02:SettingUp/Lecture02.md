@@ -25,5 +25,9 @@ install:
 - sourmash
 - centrifuge
 
+```
+conda install -c bioconda kallisto
+```
+
 [Previous Topic](Lecture01.md.md)
-[Next Lecture Topic](../Lecture02:SettingUp/Lecture02.md)
+[Next Lecture Topic](../Lecture03:Kallisto/Lecture03.md)
