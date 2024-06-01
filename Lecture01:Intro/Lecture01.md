@@ -518,5 +518,4 @@ Greater than or = 12 seems to be robust and can detect smaller fold changes, but
 
 
 [Previous Topic](../README.md)
-[Software installation](installation.md)
 [Next Lecture Topic](../Lecture02:SettingUp/Lecture2.md)
