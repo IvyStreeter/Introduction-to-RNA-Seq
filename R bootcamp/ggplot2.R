@@ -72,6 +72,7 @@ myPlot <- ggplot(mpg) +
   facet_wrap(~year) # this is all that is needed to facet
 
 # only takes one line of code to make this plot interactive using plotly
+library(plotly)
 ggplotly(myPlot)
 
 # working with colors in R
