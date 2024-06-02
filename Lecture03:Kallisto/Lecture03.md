@@ -1,3 +1,44 @@
+# Lecture notes
+Burrows-Wheeler Transform (BWT)
+[Wiki page](https://en.wikipedia.org/wiki/Burrows%E2%80%93Wheeler_transform)
+
+[Youtube video explaining BWT](https://www.youtube.com/watch?v=4n7NPk5lwbI)
+
+Originally designed for compression in 1994 by Michael Burrows and David Wheeler. The BWT is a reversible permutation used for characters of a string.
+
+The permutation goes like this:
+1. Make a rotation
+2. Sort them alphabetically starting with $
+3. Take the last column and join them
+
+Characters of the BWT are sorted by their right-context. Upon observations it appears that it brings like characters together and often vowels are the final character. This final column with runs of the same character is why this BWT is more compressible.
+
+The suffix array is the same as the Burrows-Wheeler matrix without anything after the $. This is because the expected order after the $ is known and therefore, it is unnecessary to store.
+
+So how do you get from the BWT(T) back to T? Through a process called LF mapping. To LF map. For each character in a BWT(T), annotate them with a ranking (T-ranking) of 0. If a letter repeats in a BWT(T), rank them dependent on the when they appeared in the first BWT(T). 
+
+If you look down F (first) or L (last) columns of a BWM, the order of the ranking repeats the same way. This is due to the sorted list of rotations. The sort makes locating the correct row easy as long as the structure is known. This is how LF mapping works and how you can reconstruct T.
+
+## Different aligners have different methods
+
+Methods:
+- Brute force: match a nucleotide and extend from each position. This is computationally slow.
+- Seed and extend: take a stretch of nucleotides of size k and extend. Less extensions, less matches than in the first method. This is faster. An example is RSubread aligner. Take a read, take a subread, align to the reference and gain a vote if a match is found. The most votes becomes the alignment.
+- Psuedoaligners: This addresses the idea of length and exact matches. Extending is where computation slows down. Example Sailfish that removes approximate alignment and only works with exact alignments of short k-mers.
+- Removing alignment altogether: Kallisto
+[Youtube video about psuedoalignment](https://www.youtube.com/watch?v=PqJAnxXCcFA)
+
+advantages:
+- faster
+- bootstrapping -> technical replicates 
+- laptop workstation
+
+disadvantges:
+- cannot look at SNPs
+- cannot look at splice junctions
+
+
+# Code notes
 Running fastqc on fastq files
 
 ```
