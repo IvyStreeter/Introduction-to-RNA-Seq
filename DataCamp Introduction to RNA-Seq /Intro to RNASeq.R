@@ -80,6 +80,8 @@ rownames(reordered_metadata)
 dds <- DESeqDataSetFromMatrix(countData = smoc2_rawcounts,
                               colData = reordered_metadata,
                               design = ~ condition)
+
+
 # Normalization calculation
 dds <- estimateSizeFactors(dds) 
 
@@ -107,7 +109,9 @@ library(pheatmap)
 pheatmap(vsd_cor, annotation = select(smoc2_metadata, condition))
 
 # Principal component analysis to emphasize variation in the data
+png('PCA.png')
 plotPCA(vsd, intgroup="condition")
+dev.off()
 
 # Differential expression with DESeq2
 # raw counts -> binomial model > shrinkin to log2 > exploration
@@ -134,13 +138,62 @@ ggplot(df) +
   scale_x_log10() +
   xlab("Mean counts per gene") +
   ylab("Variance per gene")
+ggsave("MeanVsVariance.png", width = 7, height = 7)
 
 # Seeing variance increase with mean is expected.
 # The range of variance is greater for lower mean counts than higher mean counts.
 # Dispersion is used to assess variability in expression when modeling counts.
+png('dispersion.png')
 plotDispEsts((dds_data))
+dev.off()
 
 # Poor data looks more cloud-like with decreasing mean
 # May indicate sample outliers or contamination
 
 # DESeq2 model - contrasts
+de_results <- results(dds_data, 
+        contrast = c("condition", "fibrosis",
+                     "normal"),
+        alpha = 0.05)
+
+# Visualize DE
+plotMA(de_results, ylim = c(-8,8))
+
+# Relevel 
+dds$condition
+dds$condition <- relevel(dds$condition, ref = "fibrosis")
+dds <- estimateSizeFactors(dds)
+dds <- estimateDispersions(dds)
+dds <- nbinomWaldTest(dds)
+resultsNames(dds)
+
+
+# Shrink to get accurate fold levels
+de_results <- lfcShrink(dds =dds_data,coef = 2, type = "apeglm")
+de_results <- lfcShrink(dds =dds_data,coef = 2, type = "ashr")
+png('apeglm.png')
+plotMA(de_results, ylim = c(-8,8))
+dev.off()
+
+# if (!requireNamespace("BiocManager", quietly = TRUE))
+#   install.packages("BiocManager")
+# 
+# BiocManager::install("ashr")
+
+
+mcols(de_results)
+summary(de_results)
+
+de_results <- results(dds_data, 
+                      contrast = c("condition", "fibrosis",
+                                   "normal"),
+                      alpha = 0.05)
+
+
+de_results <- lfcShrink(dds = dds_data,coef = 2, type = "apeglm")
+summary(de_results)
+
+install.packages("devtools")
+devtools::install_github("stephenturner/annotables")
+
+library(annotables)
