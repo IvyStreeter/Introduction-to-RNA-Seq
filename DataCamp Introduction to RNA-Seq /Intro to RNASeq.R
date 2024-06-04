@@ -1,3 +1,5 @@
+# Some notes while following the DataCamp course
+
 # Questions of RNA-Seq
 # Which genes are differentially expressed between sample groups?
 # Are there any trends in gene expression over time or across conditions?
@@ -21,6 +23,9 @@ library(pheatmap)
 
 # Load library for tidyverse
 library(tidyverse)
+
+library(magrittr)
+library(dplyr)
 
 # Steps RNA-Seq Experimental Design
 ## Replicates/Batch effects/confounding
@@ -193,7 +198,91 @@ de_results <- results(dds_data,
 de_results <- lfcShrink(dds = dds_data,coef = 2, type = "apeglm")
 summary(de_results)
 
-install.packages("devtools")
-devtools::install_github("stephenturner/annotables")
-
+# Check out the reference genome annotations
 library(annotables)
+
+# View reference annotations
+grcm38 
+
+# Extract results table
+res_all <- data.frame(de_results) %>%
+  rownames_to_column(var = "ensgene") %>%
+  left_join(x = res_all,
+            y = grcm38[, c("ensgene", "symbol", "description")],
+            by = "ensgene")
+
+View(res_all)
+
+# Find significant genes
+sig_res <- subset(res_all, padj < 0.05)
+
+sig_res <- sig_res %>%
+  arrange(padj)
+
+View(sig_res)
+
+# Visualization of results
+
+# Expression heatmap (normalized counts)
+# Subset only DE genes
+sig_norm_counts <- normalized_counts[sig_res$ensgene, ]
+
+  # Subset normalized counts to significant genes
+  sig_norm_counts_smoc2 <- normalized_counts_smoc2[rownames(smoc2_res_sig), ]
+
+
+# Color
+# display.brewer.all()
+heat_colors <- brewer.pal(6, "PiYG")
+
+my_heatmap <- pheatmap(sig_norm_counts,
+         color = heat_colors,
+         cluster_rows = T,
+         show_rownames = F,
+         annotation = select(smoc2_metadata, condition),
+         scale = "row")
+
+save_pheatmap_png <- function(x, filename, width=1200, height=1000, res = 150) {
+  png(filename, width = width, height = height, res = res)
+  grid::grid.newpage()
+  grid::grid.draw(x$gtable)
+  dev.off()
+}
+save_pheatmap_png(my_heatmap, "my_heatmap.png")
+
+# Volcano plot
+library(ggplot2)
+res_all <- res_all %>%
+  rownames_to_column(var = "gene") %>%
+  mutate(threshold = padj < 0.05)
+
+ggplot(res_all) +
+  geom_point(aes(x = log2FoldChange, y = -log10(padj),
+                 color = threshold)) + 
+  xlab("log2 fold change") +
+  ylab("-log10 adjusted p-value") +
+#  ylim(0, 10) +
+  theme(legend.position = "none",
+        plot.title = element_text(size = rel(1.5), hjust = 0.5),
+        axis.title = element_text(size = rel(1.25)))
+ggsave("Volcanoplot.png", width = 7, height = 7)
+
+# Expression plot
+top_20 <- data.frame(sig_norm_counts)[1:20,] %>%
+  rownames_to_column(var = "ensgene")
+
+top_20 <- gather(top_20, key = "samplename", value = "normalized_counts", 2:8)
+
+top_20 <- inner_join(top_20,
+                    rownames_to_column(smoc2_metadata, var = "samplename"),
+                    by = "samplename")
+ggplot(top_20) + 
+  geom_point(aes(x = ensgene, y = normalized_counts, color = condition)) +
+  scale_y_log10() + 
+  xlab("Genes") + 
+  ylab("Normalized Counts") + 
+  ggtitle("Top 20 Significant DE Genes") + 
+  theme_bw() + 
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  theme(plot.title = element_text(hjust = 0.5))
+ggsave("ExpressionPlot.png", width = 7, height = 7)
