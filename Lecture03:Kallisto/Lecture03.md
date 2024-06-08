@@ -26,11 +26,13 @@ Methods:
 - Seed and extend: take a stretch of nucleotides of size k and extend. Less extensions, less matches than in the first method. This is faster. An example is RSubread aligner. Take a read, take a subread, align to the reference and gain a vote if a match is found. The most votes becomes the alignment.
 - Psuedoaligners: This addresses the idea of length and exact matches. Extending is where computation slows down. Example Sailfish that removes approximate alignment and only works with exact alignments of short k-mers.
 - Removing alignment altogether: Kallisto
-[Youtube video about psuedoalignment](https://www.youtube.com/watch?v=PqJAnxXCcFA)
+[Youtube video about psuedoalignment](https://www.youtube.com/watch?v=94wphB3GKBM)
+<br>
+[A video regaarding aligners](https://youtu.be/b4tVokh6Law)
 
 advantages:
 - faster
-- bootstrapping -> technical replicates 
+- bootstrapping -> technical replicates -> uncertainty estimates
 - laptop workstation
 
 disadvantges:
@@ -118,6 +120,10 @@ conda update python
 ```
 After python was upgraded to the latest version 3.11.9, multiqc was able to work
 
+# R
+load a new project
+set repos to all
+the lecture focused on loading packages
 
 [Previous Topic](../Lecture02:SettingUp/Lecture2.md)
 [Next Lecture Topic](../Lecture04:RNAseqCount/Lecture04.md)

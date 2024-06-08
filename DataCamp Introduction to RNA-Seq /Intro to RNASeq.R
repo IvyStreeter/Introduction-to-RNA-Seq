@@ -286,3 +286,31 @@ ggplot(top_20) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
   theme(plot.title = element_text(hjust = 0.5))
 ggsave("ExpressionPlot.png", width = 7, height = 7)
+
+
+######################
+# Code bits
+# Check that all of the samples are in the same order in the metadata and count data
+all(rownames(all_metadata) %in% colnames(all_rawcounts))
+
+# DESeq object to test for the effect of fibrosis regardless of genotype
+dds_all <- DESeqDataSetFromMatrix(countData = all_rawcounts,
+                                  colData = all_metadata,
+                                  design = ~ genotype + condition)
+
+# DESeq object to test for the effect of genotype on the effect of fibrosis                        
+dds_complex <- DESeqDataSetFromMatrix(countData = all_rawcounts,
+                                      colData = all_metadata,
+                                      design = ~ genotype + condition + genotype:condition)
+
+
+# Select significant genese with padj < 0.05
+smoc2_sig <- subset(res_all, padj < 0.05) %>%
+  data.frame() %>%
+  rownames_to_column(var = "geneID")
+
+# Extract the top 6 genes with padj values
+smoc2_sig %>%
+  arrange(padj) %>%
+  select(geneID, padj) %>%
+  head()
