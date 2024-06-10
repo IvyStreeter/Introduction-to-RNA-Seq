@@ -1,0 +1,13 @@
+{
+	"n_targets": 206723,
+	"n_bootstraps": 0,
+	"n_processed": 89921353,
+	"n_pseudoaligned": 47428998,
+	"n_unique": 12618216,
+	"p_pseudoaligned": 52.7,
+	"p_unique": 14.0,
+	"kallisto_version": "0.46.2",
+	"index_version": 10,
+	"start_time": "Sun Jun  2 10:50:12 2024",
+	"call": "kallisto quant -i Human112cDNA.index -o HS01 -t 10 --single -l 250 -s 30 SRR8668755.fastq.gz"
+}

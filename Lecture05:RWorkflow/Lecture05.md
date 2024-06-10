@@ -9,4 +9,4 @@ Annotations link the transcript identifier to the gene name.
 # Code notes
 
 [Previous Topic](../Lecture04:RNASeqCount/Lecture04.md)
-[Next Lecture Topic](../Lecture06:WWrangling/Lecture06.md)
+[Next Lecture Topic](../Lecture06:Wrangling/Lecture06.md)
