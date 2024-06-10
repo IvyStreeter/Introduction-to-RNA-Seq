@@ -41,7 +41,8 @@ head(myTPM.stats)
 # produce a scatter plot of the transformed data
 ggplot(myTPM.stats) + 
   aes(x = SD, y = MED) +
-  geom_point(shape=25, size=3)
+  geom_point(shape=20, size=3)
+dev.off()
 # Experiment with point shape and size in the plot above
 # Experiment with other plot types (e.g. 'geom_hex' instead of 'geom_point')
 # Add a theme to your ggplot code above.  Try 'theme_bw()'
@@ -50,9 +51,9 @@ ggplot(myTPM.stats) +
 # Let's expand on the plot above a bit more and take a look at each 'layer' of the ggplot code
 ggplot(myTPM.stats) + 
   aes(x = SD, y = MED) +
-  geom_point(shape=16, size=2) +
+  geom_point(shape=20, size=2) +
   geom_smooth(method=lm) +
-  geom_hex(show.legend = FALSE) +
+  #geom_hex(show.legend = FALSE) +
   labs(y="Median", x = "Standard deviation",
        title="Transcripts per million (TPM)",
        subtitle="unfiltered, non-normalized data",
@@ -60,6 +61,7 @@ ggplot(myTPM.stats) +
   theme_classic() +
   theme_dark() + 
   theme_bw()
+ggsave("TPMOverview.png", width = 7, height = 7)
 
 # Make a DGElist from your counts, and plot ----
 myDGEList <- DGEList(myCounts)
