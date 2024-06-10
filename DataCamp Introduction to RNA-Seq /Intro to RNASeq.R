@@ -313,4 +313,6 @@ smoc2_sig <- subset(res_all, padj < 0.05) %>%
 smoc2_sig %>%
   arrange(padj) %>%
   select(geneID, padj) %>%
+  
+
   head()
