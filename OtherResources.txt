@@ -1,0 +1,20 @@
+10 Tips for biologists learning bioinformatics
+https://www.10xgenomics.com/analysis-guides/10-tips-for-biologists-learning-bioinformatics?ck_subscriber_id=2489408450&utm_source=convertkit&utm_medium=email&utm_campaign=Why%20Bioinformatics%20is%20hard?%20-%2013045302
+
+Effect size
+https://en.wikipedia.org/wiki/Effect_size
+
+Power of a test
+https://en.wikipedia.org/wiki/Power_of_a_test
+
+Interpreting P and q values in the results of genomic data analysis
+https://www.youtube.com/watch?app=desktop&v=S268k-DWRrE
+
+Introduction to Data Science
+https://rafalab.dfci.harvard.edu/dsbook-part-2/
+
+Getting Genetics Don
+https://gettinggeneticsdone.blogspot.com/
+
+The Shell - Episode 6 - Finding Things
+https://youtu.be/7uZW1Fh8JLY?si=YovpGTLueonjeyRv

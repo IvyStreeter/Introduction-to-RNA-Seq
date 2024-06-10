@@ -9,7 +9,7 @@
 # Notes:
 # recall that your abundance data are TPM, while the counts are read counts mapping to each gene or transcript
 
-# Load packages -----
+# Load packages set-----
 library(tidyverse) # already know about this from Step 1 script
 library(edgeR) # well known package for differential expression analysis, but we only use for the DGEList object and for normalization methods
 library(matrixStats) # let's us easily calculate stats on rows or columns of a data matrix
