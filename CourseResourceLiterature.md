@@ -155,3 +155,18 @@ Original T-SNE paper.
 UMAP paper - A new algorithm, called uniform manifold approximation and projection (UMAP) has been recently published and is gaining popularity in single cell RNAseq and flow cytometry analysis. UMAP is proposed to preserve as much of the local and more of the global data structure than t-SNE, with a shorter run time.
 - https://www.nature.com/articles/nbt.4314
 
+Ten quick tips for effective dimensionality reduction
+- https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006907
+
+Comparison of the transcriptional landscapes between human and mouse tissues
+- https://pubmed.ncbi.nlm.nih.gov/25413365/
+
+A reanalysis of mouse ENCODE comparative gene expression data
+- https://pubmed.ncbi.nlm.nih.gov/26236466/
+
+Notice of Retraction. Aboumatar et al. Effect of a Program Combining Transitional Care and Long-term Self-management Support on Outcomes of Hospitalized Patients With Chronic Obstructive Pulmonary Disease: A Randomized Clinical Trial. JAMA. 2018;320(22):2335-2343.
+- https://jamanetwork.com/journals/jama/fullarticle/2752474
+
+PCA video
+- https://youtu.be/FgakZw6K1QQ
+

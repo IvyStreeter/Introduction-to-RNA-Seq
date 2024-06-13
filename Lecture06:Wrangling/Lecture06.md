@@ -5,6 +5,7 @@ A dataset is messy of tidy depending on how rows, columns and tables are matched
 2. Each observation forms a row
 3. Each type of observational unit forms a table
 
+
 # Code notes
 
 [Previous Topic](../Lecture05:RNAWorkflow/Lecture05.md)

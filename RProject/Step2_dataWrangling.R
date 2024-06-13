@@ -51,16 +51,16 @@ dev.off()
 # Let's expand on the plot above a bit more and take a look at each 'layer' of the ggplot code
 ggplot(myTPM.stats) + 
   aes(x = SD, y = MED) +
-  geom_point(shape=20, size=2) +
+  #geom_point(shape=20, size=2) +
   geom_smooth(method=lm) +
-  #geom_hex(show.legend = FALSE) +
+  geom_hex(show.legend = FALSE) +
   labs(y="Median", x = "Standard deviation",
        title="Transcripts per million (TPM)",
        subtitle="unfiltered, non-normalized data",
        caption="DIYtranscriptomics - Spring 2020") +
   theme_classic() +
-  theme_dark() + 
-  theme_bw()
+  # theme_dark() + 
+   theme_bw()
 ggsave("TPMOverview.png", width = 7, height = 7)
 
 # Make a DGElist from your counts, and plot ----
@@ -106,9 +106,26 @@ ggplot(log2.cpm.df.pivot) +
        subtitle="unfiltered, non-normalized",
        caption=paste0("produced on ", Sys.time())) +
   theme_bw()
+ggsave("Log2Violin.png", width = 7, height = 7)
   
 # what do you think of the distribution of this data?
 # Try using coord_flip() at the end of the ggplot code
+ggplot(log2.cpm.df.pivot) +
+  aes(x=samples, y=expression, fill=samples) +
+  geom_violin(trim = FALSE, show.legend = FALSE) +
+  stat_summary(fun = "median", 
+               geom = "point", 
+               shape = 108, 
+               size = 10, 
+               color = "black", 
+               show.legend = FALSE) +
+  labs(y="log2 expression", x = "sample",
+       title="Log2 Counts per Million (CPM)",
+       subtitle="unfiltered, non-normalized",
+       caption=paste0("produced on ", Sys.time())) +
+  theme_bw() + 
+  coord_flip()
+ggsave("Log2ViolinFLIP.png", width = 7, height = 7)
 
 # Filter your data ----
 #first, take a look at how many genes or transcripts have no read counts at all
@@ -126,6 +143,7 @@ table(rowSums(myDGEList$counts==0)==10)
 # The line below is important! This is where the filtering starts
 # Be sure to adjust this cutoff for the number of samples in the smallest group of comparison.
 keepers <- rowSums(cpm>1)>=5
+# avoid that is very low in one group vs another by setting it to 5, this is a minimum condition
 # now use base R's simple subsetting method to filter your DGEList based on the logical produced above
 myDGEList.filtered <- myDGEList[keepers,]
 dim(myDGEList.filtered)
@@ -154,6 +172,7 @@ ggplot(log2.cpm.filtered.df.pivot) +
        subtitle="filtered, non-normalized",
        caption=paste0("produced on ", Sys.time())) +
   theme_bw()
+ggsave("Log2ViolinFILTER.png", width = 7, height = 7)
 
 # Normalize your data ----
 myDGEList.filtered.norm <- calcNormFactors(myDGEList.filtered, method = "TMM")
@@ -184,12 +203,13 @@ ggplot(log2.cpm.filtered.norm.df.pivot) +
        subtitle="filtered, TMM normalized",
        caption=paste0("produced on ", Sys.time())) +
   theme_bw()
+ggsave("NORMLog2ViolinFILTER.png", width = 7, height = 7)
 
 # what if we wanted to put all three violin plots together?
 # go back and assign each plot to a variable (rather than printing to the plots viewer)
 # here we assigned the last 3 plots to p1, p2 and p3
 # we'll use the 'plot_grid' function from the cowplot package to put these together in a figure
-plot_grid(p1, p2, p3, labels = c('A', 'B', 'C'), label_size = 12)
+#plot_grid(p1, p2, p3, labels = c('A', 'B', 'C'), label_size = 12)
 print("Step 2 complete!")
 
 # the essentials ----
@@ -276,4 +296,4 @@ p3 <- ggplot(log2.cpm.filtered.norm.df.pivot) +
   theme_bw()
 
 plot_grid(p1, p2, p3, labels = c('A', 'B', 'C'), label_size = 12)
-
+beep(sound = 2)
