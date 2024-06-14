@@ -170,3 +170,19 @@ Notice of Retraction. Aboumatar et al. Effect of a Program Combining Transitiona
 PCA video
 - https://youtu.be/FgakZw6K1QQ
 
+# Lecture 7
+ReCount: A multi-experiment resource of analysis-ready RNA-seq gene count datasets
+- https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-12-449
+
+Reproducible RNA-seq analysis using recount2
+- https://www.nature.com/articles/nbt.3838
+
+Massive mining of publicly available RNA-seq data from human and mouse
+- https://www.nature.com/articles/s41467-018-03751-6
+
+Digital expression explorer 2: a repository of uniformly processed RNA sequencing data
+- https://pubmed.ncbi.nlm.nih.gov/30942868/
+
+Activity of Uncleaved Caspase-8 Controls Anti-bacterial Immune Defense and TLR-Induced Cytokine Production Independent of Cell Death
+- https://pubmed.ncbi.nlm.nih.gov/27737018/
+

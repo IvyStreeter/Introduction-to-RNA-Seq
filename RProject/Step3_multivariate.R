@@ -26,7 +26,9 @@ log2.cpm.filtered.norm.df
 #try other distance methods (e.g. switch from 'maximum' to 'euclidean')...how does this change the result?
 distance <- dist(t(log2.cpm.filtered.norm), method = "maximum") #other distance methods are "euclidean", maximum", "manhattan", "canberra", "binary" or "minkowski"
 clusters <- hclust(distance, method = "average") #other agglomeration methods are "ward.D", "ward.D2", "single", "complete", "average", "mcquitty", "median", or "centroid"
+png('ClusterDendrogram.png')
 plot(clusters, labels=sampleLabels)
+dev.off()
 
 # Principal component analysis (PCA) -------------
 pca.res <- prcomp(t(log2.cpm.filtered.norm), scale.=F, retx=T)
@@ -56,7 +58,8 @@ ggplot(pca.res.df) +
        caption=paste0("produced on ", Sys.time())) +
   # coord_fixed() +
   theme_bw()
-
+ggsave("PCA.png", width = 7, height = 7)
+dev.off()
 # Let's discuss and iteratively refine the PCA code and plot from above
 # First, take note of the fact that we can use information from our PCA analysis to label our axes
 # Remember that PCA is unsupervised, so knows nothing about group assignment (healthy vs disease)
@@ -87,7 +90,8 @@ ggplot(pca.pivot) +
        caption=paste0("produced on ", Sys.time())) +
   theme_bw() +
   coord_flip()
-
+ggsave("PCA_bar.png", width = 7, height = 7)
+dev.off()
 
 
 # Use dplyr 'verbs' to modify our dataframe ----
@@ -173,6 +177,8 @@ myplot <- ggplot(mydata.df) +
 
 #now use the ggplotly function from the plotly package to convert this ggplot object into an interactive plot
 ggplotly(myplot)
+ggsave("disease_v_healthy_scatter.png", width = 7, height = 7)
+dev.off()
 
 #let's customize this graphic by adding a more informative mouseover tooltip
 myplot <- ggplot(mydata.df) +
@@ -183,6 +189,9 @@ myplot <- ggplot(mydata.df) +
   theme_bw()
 
 ggplotly(myplot)
+ggsave("disease_v_healthy_scatter_inter.png", width = 7, height = 7)
+dev.off()
+
 
 # the essentials ----
 library(tidyverse)
