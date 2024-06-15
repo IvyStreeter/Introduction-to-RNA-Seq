@@ -13,7 +13,7 @@ library(edgeR)
 # begin by creating file paths that point to the hdf5 archs4 files
 # because of the size of these files, feel free to skip the human data and just work with mouse
 archs4.human <- "human_gene_v2.3.h5"
-archs4.mouse <- "mouse_gene_v2.3.h5"
+archs4.mouse <- "archs4_gene_mouse_v2.1.2.h5"
 # use the h5 list (h5ls) function from the rhdf5 package to look at the contents of these databases
 h5ls(archs4.human)
 h5ls(archs4.mouse)
@@ -22,7 +22,7 @@ h5ls(archs4.mouse)
 all.samples.human <- h5read(archs4.human, name="meta/samples/geo_accession")
 dim(all.samples.human)
 
-# data for 53,511 MOUSE genes across 932,405 samples
+# data for 53,454 MOUSE genes across 717,966 samples
 all.samples.mouse <- h5read(archs4.mouse, name="meta/samples/geo_accession")
 dim(all.samples.mouse)
 
@@ -31,7 +31,7 @@ dim(all.samples.mouse)
 mySamples <- c("GSM2310941", # WT_unstim_rep1
                "GSM2310942", # WT_unstim_rep2
                "GSM2310943", # Ripk3_unstim_rep1
-               "GSM2310944", # Ripk3_unstim_rep2
+               "GSM2310944", # Ripk3_unstim_rehttp://diytranscriptomics.github.io/Code/files/Step4_publicData.Rp2
                "GSM2310945", # Ripk3Casp8_unstim_rep1
                "GSM2310946", # Ripk3Casp8_unstim_rep2
                "GSM2310947", # WT_LPS.6hr_rep1
@@ -44,11 +44,15 @@ mySamples <- c("GSM2310941", # WT_unstim_rep1
 # Identify columns to be extracted from ARCHS4 database
 my.sample.locations <- which(all.samples.mouse %in% mySamples) # first time you've seen the %in% operator.
 # extract gene symbols from the metadata
-genes <- h5read(archs4.mouse, "meta/genes/symbol")
+genes <- h5read(archs4.mouse, "meta/genes/gene_symbol")
 
 # Extract expression data from ARCHS4 ----
+#expression <- h5read(archs4.mouse, "data/expression",
+                    # index=list(1:length(genes), my.sample.locations))
+
 expression <- h5read(archs4.mouse, "data/expression",
                      index=list(my.sample.locations, 1:length(genes)))
+
 # transpose to get genes as rows and samples as columns
 expression <- t(expression)
 
@@ -108,7 +112,7 @@ pc.per
 #We know how much each sample contributes to each PC (loadings), so let's plot
 pca.res.df <- as_tibble(pca.res$x)
 ggplot(pca.res.df) +
-  aes(x=PC1, y=PC2) +
+  aes(x=PC1, y=PC2, color=treatment) +
   geom_point(size=4) +
   # geom_label() +
   # stat_ellipse() +
@@ -118,6 +122,8 @@ ggplot(pca.res.df) +
        caption=paste0("produced on ", Sys.time())) +
   coord_fixed() +
   theme_bw()
+ggsave("PCA_PC1_v_PC2_PublicData.png", width = 7, height = 7)
+dev.off()
 
 # now try painting other variables from your study design file onto this PCA.
 # can you determine the relationship between PC1 and your metadata?
@@ -144,7 +150,8 @@ ggplot(pca.pivot) +
        caption=paste0("produced on ", Sys.time())) +
   theme_bw() +
   coord_flip()
-
+ggsave("SmallMultiples_PublicData.png", width = 7, height = 7)
+dev.off()
 
 
 # the essentials ----

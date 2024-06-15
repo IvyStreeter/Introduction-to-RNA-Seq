@@ -189,3 +189,11 @@ Activity of Uncleaved Caspase-8 Controls Anti-bacterial Immune Defense and TLR-I
 grabseqs: simple downloading of reads and metadata from multiple next-generation sequencing data repositories
 - https://pubmed.ncbi.nlm.nih.gov/32154830/
 
+Differential analyses for RNA-seq: transcript-level estimates improve gene-level inferences
+- https://f1000research.com/articles/4-1521
+
+The Landscape of Isoform Switches in Human Cancers
+- https://aacrjournals.org/mcr/article/15/9/1206/268100/The-Landscape-of-Isoform-Switches-in-Human
+
+IsoformSwitchAnalyzeR: analysis of changes in genome-wide patterns of alternative splicing and its functional consequences
+- https://academic.oup.com/bioinformatics/article/35/21/4469/5466456
