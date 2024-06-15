@@ -186,3 +186,6 @@ Digital expression explorer 2: a repository of uniformly processed RNA sequencin
 Activity of Uncleaved Caspase-8 Controls Anti-bacterial Immune Defense and TLR-Induced Cytokine Production Independent of Cell Death
 - https://pubmed.ncbi.nlm.nih.gov/27737018/
 
+grabseqs: simple downloading of reads and metadata from multiple next-generation sequencing data repositories
+- https://pubmed.ncbi.nlm.nih.gov/32154830/
+
