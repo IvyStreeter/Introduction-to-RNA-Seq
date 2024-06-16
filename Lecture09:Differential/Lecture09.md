@@ -8,7 +8,10 @@
 
 Gene level data may be more accurate than transcript data due to isoform calling and shared exons. 
 
-It's important to note, that regardless of DGE, DTE, DTU, kallisto is a recommended aligner. Curious though because I though pseudo-aligners were not recommended due to isoforms? \
+It's important to note, that regardless of DGE, DTE, DTU, kallisto is a recommended aligner.
+
+Most genes produce isoforms, ~6 on average per gene with ~3 having protein coding potential. Isoform switching can have different prognosis consequences for cancer patients.
+
 
 # Code notes
 

@@ -197,3 +197,35 @@ The Landscape of Isoform Switches in Human Cancers
 
 IsoformSwitchAnalyzeR: analysis of changes in genome-wide patterns of alternative splicing and its functional consequences
 - https://academic.oup.com/bioinformatics/article/35/21/4469/5466456
+
+# Lecture 8
+VOOM: precision weights unlock linear model analysis tools for RNA-seq read counts. Genome Biology, Feb, 2014 - Describes one of the approaches for adjusting RNAseq count data based on the mean-variance relationship.
+- http://diytranscriptomics.github.io/Reading/files/voom.pdf 
+
+Differential analyses for RNA-seq: transcript-level estimates improve gene-level inferences – describes the TxImport package with extensive discussion/consideration for DGE vs DTE vs DTU analysis. A must read for this lecture.
+- https://doi.org/10.12688/f1000research.7563.2
+
+Harold Pimentel’s talk on differential expression with RNAseq
+- https://www.youtube.com/watch?v=BRWj6re9iGc 
+
+how to set-up a design matrix
+- http://genomicsclass.github.io/book/pages/expressing_design_formula.html 
+
+Count-based differential expression analysis of RNA sequencing data using R and Bioconductor. Nature Protocols, Aug 22, 2013 - This is a great overview of the edgeR and DESeq packages, their use, and explains how each one approaches differential gene expression.
+- http://diytranscriptomics.github.io/Reading/files/nprot.2013.099.pdf 
+
+Limma user’s guide
+- http://www.bioconductor.org/packages/release/bioc/vignettes/limma/inst/doc/usersguide.pdf
+
+EdgeR user’s guide. See section 3.4 and 3.5 for details about how to modify your modgel.matrix function for a ‘blocking’ design.
+- https://www.bioconductor.org/packages/release/bioc/vignettes/edgeR/inst/doc/edgeRUsersGuide.pdf
+
+# Lecture 9
+Clust: automatic extraction of optimal co-expressed gene clusters from gene expression data. Genome Biology, 2018.
+- https://doi.org/10.1186/s13059-018-1536-8
+
+Paradigm of Tunable Clustering Using Binarization of Consensus Partition Matrices (Bi-CoPaM) for Gene Discovery
+- https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0056432
+
+UNCLES: method for the identification of genes differentially consistently co-expressed in a specific subset of datasets
+- https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-015-0614-0

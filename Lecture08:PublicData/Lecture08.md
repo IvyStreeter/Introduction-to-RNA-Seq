@@ -35,5 +35,5 @@ lightweight data is a challenge -> GTEx is a community based resource to link ge
 
 # Code notes
 
-[Previous Topic](../Lecture07:PublicData/Lecture07.md)
+[Previous Topic](../Lecture07:Explore/Lecture07.md)
 [Next Lecture Topic](../Lecture09:Differential/Lecture09.md)
