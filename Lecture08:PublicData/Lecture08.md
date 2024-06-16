@@ -32,6 +32,7 @@ grabseqs
 
 lightweight data is a challenge -> GTEx is a community based resource to link genotype with tissue expression
 
+
 # Code notes
 
 [Previous Topic](../Lecture07:PublicData/Lecture07.md)

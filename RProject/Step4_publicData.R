@@ -112,17 +112,17 @@ pc.per
 #We know how much each sample contributes to each PC (loadings), so let's plot
 pca.res.df <- as_tibble(pca.res$x)
 ggplot(pca.res.df) +
-  aes(x=PC1, y=PC2, color=treatment) +
+  aes(x=PC2, y=PC4, color=genotype) +
   geom_point(size=4) +
   # geom_label() +
   # stat_ellipse() +
-  xlab(paste0("PC1 (",pc.per[1],"%",")")) +
-  ylab(paste0("PC2 (",pc.per[2],"%",")")) +
+  xlab(paste0("PC2 (",pc.per[2],"%",")")) +
+  ylab(paste0("PC4 (",pc.per[4],"%",")")) +
   labs(title="PCA plot",
        caption=paste0("produced on ", Sys.time())) +
   coord_fixed() +
   theme_bw()
-ggsave("PCA_PC1_v_PC2_PublicData.png", width = 7, height = 7)
+ggsave("PCA_PC2_v_PC4_PublicData.png", width = 7, height = 7)
 dev.off()
 
 # now try painting other variables from your study design file onto this PCA.
@@ -143,14 +143,14 @@ pca.pivot <- pivot_longer(pca.res.df, # dataframe to be pivoted
                           values_to = "loadings") # name of new variable (column) storing all the values (data)
 
 ggplot(pca.pivot) +
-  aes(x=sampleName, y=loadings, fill=treatment) + # you could iteratively 'paint' different covariates onto this plot using the 'fill' aes. Try doing this with the genotype variable you created above.
+  aes(x=sampleName, y=loadings, fill=genotype) + # you could iteratively 'paint' different covariates onto this plot using the 'fill' aes. Try doing this with the genotype variable you created above.
   geom_bar(stat="identity") +
   facet_wrap(~PC) +
   labs(title="PCA 'small multiples' plot",
        caption=paste0("produced on ", Sys.time())) +
   theme_bw() +
   coord_flip()
-ggsave("SmallMultiples_PublicData.png", width = 7, height = 7)
+ggsave("SmallMultiples_PublicData_genotype.png", width = 7, height = 7)
 dev.off()
 
 
