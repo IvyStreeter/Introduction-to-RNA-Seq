@@ -229,3 +229,13 @@ Paradigm of Tunable Clustering Using Binarization of Consensus Partition Matrice
 
 UNCLES: method for the identification of genes differentially consistently co-expressed in a specific subset of datasets
 - https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-015-0614-0
+
+Toward a gold standard for benchmarking gene set enrichment analysis
+- https://academic.oup.com/bib/article/22/1/545/5722384
+
+Heading Down the Wrong Pathway: on the Influence of Correlation within Gene Sets
+- https://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-11-574
+
+Camera: a competitive gene set test accounting for inter-gene correlation
+- https://academic.oup.com/nar/article/40/17/e133/2411151
+
