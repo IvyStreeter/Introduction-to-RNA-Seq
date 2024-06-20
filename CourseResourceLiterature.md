@@ -230,6 +230,41 @@ Paradigm of Tunable Clustering Using Binarization of Consensus Partition Matrice
 UNCLES: method for the identification of genes differentially consistently co-expressed in a specific subset of datasets
 - https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-015-0614-0
 
+# Lecture 10
+The what, where, how and why of gene ontology – a primer for bioinformaticians. Briefings in Bioinformatics, Feb 2011
+- http://diytranscriptomics.github.io/Reading/files/GO.pdf 
+
+A nice lab post on the hypergeometric test and Fisher’s exact test - these statistical tests are at the core of many functional enrichment approaches.
+- http://mengnote.labspot.com/2012/12/calculate-correct-hypergeometric-p.html 
+
+Analyzing gene expression data in terms of gene sets: methodological issues - A seminal paper on the statistics of enrichment analysis in gene expression studies.
+- https://doi.org/10.1093/bioinformatics/btm051
+
+Toward a gold standard for benchmarking gene set enrichment analysis - A excellent and recent benchmarking study for enrichment tools
+- https://doi.org/10.1093/bib/bbz158
+
+original 2003 Nat. Methods paper describing Gene Set Enrichment Analysis (GSEA), and the 2005 PNAS paper that formally detailed its usage.
+- http://diytranscriptomics.github.io/Reading/files/Mootha2003_GSEA.pdf
+- http://mootha.med.harvard.edu/PubPDFs/Subramanian2005.pdf 
+
+You can carry out self-contained and competitive GSEA in R using ROAST and CAMERA, respectively.
+- http://diytranscriptomics.github.io/Reading/files/ROAST.pdf
+- http://diytranscriptomics.github.io/Reading/files/CAMERA.pdf 
+
+Gene Set VARIATION Analysis (GSVA) - I find GSVA useful for producing GSEA-type results across a heterogeneous dataset (like a large cohort of patients).
+- http://diytranscriptomics.github.io/Reading/files/GSVA.pdf
+
+The Molecular Signatures Database (MSigDB)
+- http://software.broadinstitute.org/gsea/msigdb
+
+2016 Immunity Paper describing the creation of Immunological Signatures’ collection (C7).
+- http://diytranscriptomics.github.io/Reading/files/ImmuneSigDB.pdf
+
+You know how I feel about Venn diagrams, so if you’re interested in exploring interactions between many groups of genes, have a look at this Nature Methods paper, the accompanying R package, UpSetR, as well as the UpSet website. Note, there’s a shiny app for this as well!
+- http://diytranscriptomics.github.io/Reading/files/upSet_plot.pdf
+- https://github.com/hms-dbmi/UpSetR
+- http://caleydo.org/tools/upset/ 
+
 Toward a gold standard for benchmarking gene set enrichment analysis
 - https://academic.oup.com/bib/article/22/1/545/5722384
 
