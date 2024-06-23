@@ -26,7 +26,7 @@ Gene Set Enrichment analysis comes in two main flavors
 - Self-contained; Are any of the genes in my set differentially expressed? Does not consider genes outside of your set
 - Competitive (most popular approach); Are genes in my set more commonly differentially expressed than genes outside the set? Considers genes outside your set
 
-
+Spearman may be better than Pearson due to ranking
 
 # Code notes
 
