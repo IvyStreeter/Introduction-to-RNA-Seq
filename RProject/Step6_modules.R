@@ -141,7 +141,7 @@ write_tsv(moduleData.df,"module_upRegulated.tsv")
 
 # OPTIONAL: make heatmap from an a priori list of genes ----
 #read in a text file containing the genes (with expression data) you want to include in the heatmap
-mySelectedGenes <- read_tsv("path/to/file/with/selected/genes/with/data")
+mySelectedGenes <- read_tsv("module_upRegulated.tsv")
 #rather than reading a file in, this tibble could also come from dplyr operations in step 3 script
 #convert to a matrix so you can carry out clustering
 mySelectedGenes.matrix <- as.matrix(mySelectedGenes)
